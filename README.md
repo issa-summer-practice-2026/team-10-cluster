@@ -193,12 +193,12 @@ Both teammates: add your name and GitHub handle here (and set
 The app is done. **These are not** — they're what you build. No solutions are
 included on purpose.
 
-- [ ] **CI pipeline** (`.github/workflows/ci.yml`) — two tracks:
+- [x] **CI pipeline** (`.github/workflows/ci.yml`) — two tracks:
   - **backend**: install deps → `ruff check` → `pytest` (upload coverage) →
     `python -m compileall` → boot the app and `curl --fail /health`.
   - **frontend**: `npm ci` → `npm run lint` → `npm run typecheck` →
     `npm run test` → `npm run build`.
-- [ ] **Branch protection** on `main` — require a PR, require the CI check to
+- [x] **Branch protection** on `main` — require a PR, require the CI check to
   pass, require 1 review; tick "Do not allow bypassing the above settings".
 - [ ] **Multi-stage `Dockerfile`** — stage 1 (Node) builds the frontend; stage 2
   (`python:3.x-slim`) installs backend deps, copies `backend/` + the built
