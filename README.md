@@ -1,3 +1,5 @@
+[![CI Pipeline](https://github.com/issa-summer-practice-2026/team-10-cluster/actions/workflows/CI.yml/badge.svg)](https://github.com/issa-summer-practice-2026/team-10-cluster/actions/workflows/CI.yml)
+
 # instrument-cluster
 
 A digital automotive **instrument cluster** — the starter app for the ISSA
