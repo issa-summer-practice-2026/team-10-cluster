@@ -1,0 +1,148 @@
+/* Simulator / test panel controls, styled to match the dark cluster theme. */
+
+.sim {
+  width: min(1100px, 96vw);
+  margin: 1.5rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sim-sliders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.sim-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.sim-slider-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.sim-slider-head b {
+  color: var(--text);
+  font-family: var(--font-digits);
+}
+
+/* Custom range styling */
+.sim-slider input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), rgba(255, 255, 255, 0.08));
+  outline: none;
+}
+.sim-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+.sim-slider input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 2px solid var(--accent);
+  cursor: pointer;
+}
+
+.sim-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.sim-label {
+  min-width: 4.5rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sim-gears {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+.sim-gear,
+.sim-btn,
+.sim-play {
+  font: inherit;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.sim-gear {
+  min-width: 2.2rem;
+  font-family: var(--font-digits);
+}
+.sim-gear:hover,
+.sim-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.sim-gear.active {
+  background: rgba(24, 169, 231, 0.18);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.sim-btn.active {
+  background: rgba(24, 169, 231, 0.18);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.sim-btn--hazard.active {
+  background: rgba(251, 174, 64, 0.18);
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.sim-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.sim-toggle input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--accent);
+}
+
+.sim-play {
+  margin-left: auto;
+  padding: 0.55rem 1.4rem;
+  font-weight: 600;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(24, 169, 231, 0.12);
+}
+.sim-play.playing {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: rgba(226, 64, 43, 0.12);
+}

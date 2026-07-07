@@ -1,0 +1,173 @@
+/* Theme tokens + base shell for the instrument cluster.
+   Palette follows the Aumovio brand (orange / purple / blue / golden).
+   Red is reserved strictly for the safety redline + overheat. */
+
+@font-face {
+  font-family: "AUMOVIO Office";
+  src: url("../assets/fonts/AUMOVIOOffice-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AUMOVIO Office";
+  src: url("../assets/fonts/AUMOVIOOffice-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-0: #04060a;
+  --bg-1: #0c1119;
+  --panel-0: #0e141d;
+  --panel-1: #080b11;
+
+  /* Aumovio brand */
+  --brand: #ff4208; /* orange — primary brand accent */
+  --brand-light: #ffb7a1;
+  --brand-2: #4827af; /* purple */
+  --brand-2-light: #a08ae5;
+  --golden: #fbae40;
+
+  --accent: #18a9e7; /* Aumovio blue — speedo + primary UI accent */
+  --accent-2: #4827af;
+  --accent-glow: rgba(24, 169, 231, 0.28);
+  --brand-glow: rgba(255, 66, 8, 0.35);
+  --tick: #46515f;
+  --text: #eef3f9;
+  --muted: #8a97a8;
+  --ok: #2fd6a6;
+  --warn: #fbae40; /* Aumovio golden — tachometer */
+  --danger: #e5382b; /* safety only: redline / overheat */
+  --beam: #3d7bff;
+  --signal: #35d06a;
+
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-brand: "AUMOVIO Office", var(--font-ui);
+  --font-digits: "SF Mono", "Roboto Mono", "Consolas", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-ui);
+  /* Aumovio brand gradient lives here in the ambient background — an orange
+     glow top-left and a purple glow bottom-right — so the palette reads across
+     the whole app while the cluster binnacle stays dark and the gauges pop. */
+  background:
+    radial-gradient(58% 55% at 10% 6%, rgba(255, 66, 8, 0.18), transparent 60%),
+    radial-gradient(60% 60% at 92% 96%, rgba(72, 39, 175, 0.26), transparent 62%),
+    radial-gradient(130% 100% at 50% -20%, var(--bg-1), var(--bg-0) 70%),
+    var(--bg-0);
+  background-attachment: fixed;
+}
+
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* brand lockup: Aumovio logo + ISSA Summer Practice tagline */
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+.brand-logo {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+.brand-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.brand-tag {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  font-family: var(--font-brand);
+}
+.brand-tag b {
+  font-weight: 700;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.brand-tag span {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.app-header .version {
+  font-family: var(--font-digits);
+  font-size: 0.8rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* `safe` keeps the top reachable if content ever exceeds the viewport
+     (e.g. cluster + simulator), instead of clipping it. */
+  justify-content: safe center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.app-nav {
+  display: flex;
+  gap: 0.25rem;
+}
+.app-nav button {
+  font: inherit;
+  font-family: var(--font-brand);
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  transition: color 0.12s ease, background 0.12s ease;
+}
+.app-nav button:hover {
+  color: var(--text);
+}
+.app-nav button.active {
+  color: var(--accent);
+  border-color: rgba(24, 169, 231, 0.4);
+  background: rgba(24, 169, 231, 0.1);
+}
+
+.placeholder {
+  color: var(--muted);
+}
