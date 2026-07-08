@@ -37,6 +37,7 @@ _BOOL_FIELDS: frozenset[str] = frozenset(
         "high_beam",
         "check_engine",
         "battery",
+        "seatbelt",
         "bulb_out",
     }
 )
