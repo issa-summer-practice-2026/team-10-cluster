@@ -106,6 +106,9 @@ class TestTelltales:
         t = compute_telltales(RawInput())
         assert not any(t.values())
 
+    def test_oil_lit_from_toggle(self):
+        assert compute_telltales(RawInput(oil=True))["oil"] is True
+
 
 class TestDeriveState:
     def test_to_dict_top_level_shape(self):

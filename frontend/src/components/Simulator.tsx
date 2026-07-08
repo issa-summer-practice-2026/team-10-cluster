@@ -17,8 +17,8 @@ const LAMP_TOGGLES: { name: TelltaleName; label: string }[] = [
   // cluster, but their backend keys are removed. After you add the key in the
   // backend (see docs/backlog/ — 01-oil-telltale, 02-seatbelt-telltale),
   // uncomment the matching line to get a clickable toggle here too.
-  // { name: "oil", label: "Oil" },
-  // { name: "seatbelt", label: "Seat belt" },
+  { name: "oil", label: "Oil" },
+  //{ name: "seatbelt", label: "Seat belt" },
 ];
 
 function send(partial: Record<string, unknown>) {
