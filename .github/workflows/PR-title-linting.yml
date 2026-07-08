@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check PR title
-        uses: Weburz/pr-lint-action@v0.0.1
+        uses: dreampulse/action-lint-pull-request-title@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
