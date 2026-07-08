@@ -108,6 +108,10 @@ class TestTelltales:
 
     def test_oil_lit_from_toggle(self):
         assert compute_telltales(RawInput(oil=True))["oil"] is True
+        
+    def test_seatbelt_lit_from_toggle(self):
+        assert compute_telltales(RawInput(seatbelt=True))["seatbelt"] is True
+
 
 
 class TestDeriveState:
