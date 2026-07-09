@@ -112,8 +112,6 @@ class TestTelltales:
     def test_seatbelt_lit_from_toggle(self):
         assert compute_telltales(RawInput(seatbelt=True))["seatbelt"] is True
 
-
-
 class TestDeriveState:
     def test_to_dict_top_level_shape(self):
         d = derive_state(RawInput()).to_dict()
