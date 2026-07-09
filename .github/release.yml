@@ -3,6 +3,8 @@ changelog:
     - title: Features
       labels:
         - feature
+        - enhancement
+        - feat
 
     - title: Fixes
       labels:
@@ -12,6 +14,11 @@ changelog:
     - title: Documentation
       labels:
         - documentation
+        - docs
+
+    - title: Test
+      labels:
+        - test
 
     - title: Other
       labels:
