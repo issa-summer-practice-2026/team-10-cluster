@@ -14,8 +14,9 @@ FROM python:3.11-slim as backend-build
 
 WORKDIR /backend
 
+COPY backend/dev-requirements.txt .
 COPY backend/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r dev-requirements.txt
 
 COPY backend/ .
 
